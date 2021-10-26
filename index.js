@@ -72,12 +72,16 @@ const questions = [
 // TODO: Create an array of questions for user input
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    // console.log(data)
-    // fs.writeFile(fileName, generateMarkdown({ ...data }))
+     console.log(data)
+     fs.writeFileSync(fileName, generateMarkdown({ ...data }))
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer.prompt(questions).then((inquirerResponses) => {
+    console.log('Generating README...');
+    writeToFile('README.md', generateMarkdown({ ...inquirerResponses}));
+  });
+}
 
-// Function call to initialize app
-// init();
+init();
