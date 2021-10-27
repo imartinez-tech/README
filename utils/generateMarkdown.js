@@ -31,13 +31,54 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   console.log("Data: ", data)
   return `
-  # ${data.title}
-  # ${`https://img.shields.io/badge/License-MIT-brightgreen`}
+  # ${data.title} 
+    ${renderLicenseBadge(data.license)}
 
-  # question
-  ## ${data.description}
-  ## ${data.Github}
-  ## ${data.Email}
+  #Decription 
+  ${data.description}
+  
+  ##Table of Contents
+
+  * [Installation](#installation)
+
+  *[Usage](#usage)
+  ${renderLicenseLink(data.license)}
+
+  *[Contributing](contributing)
+
+  *[Tests](#tests)
+
+  *[Questions](#questions)
+
+  ##Installation 
+
+  To install necessary dependecies, run the following command: 
+  \`\`\` 
+  ${data.installation}
+  \`\`\`
+
+  ##Usage 
+
+  ${data.usage}
+
+  ##Contributing  
+
+  ${data.contributing}
+
+  ##Tests 
+
+  To run test, run the following command: 
+  \`\`\`
+  ${data.test}
+  \`\`\`
+
+  ##Questions 
+
+  If there are any questions, contact me at ${data.Email}.
+   You can find more of my work at [${data.Github}](https://github/${data.Github}/).
+
+
+ 
 
 
   build out the rest of the markdown
