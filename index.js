@@ -69,7 +69,6 @@ const questions = [
     console.log("Location: ", answers.description)
     //writeToFile("sample.md", answers)
   });
-// TODO: Create an array of questions for user input
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
      console.log(data)
