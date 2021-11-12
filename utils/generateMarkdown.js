@@ -6,7 +6,7 @@ function renderLicenseBadge(license) {
   }
   return '';
 }
-  
+
 
 
 // TODO: Create a function that returns the license link
@@ -36,12 +36,13 @@ function generateMarkdown(data) {
 
   #Decription 
   ${data.description}
-  
+
   ##Table of Contents
 
   * [Installation](#installation)
 
   *[Usage](#usage)
+
   ${renderLicenseLink(data.license)}
 
   *[Contributing](contributing)
@@ -59,7 +60,9 @@ function generateMarkdown(data) {
 
   ##Usage 
 
-  ${data.usage}
+  ${data.usage}  
+
+  ${renderLicenseSection(data.license)}
 
   ##Contributing  
 
@@ -78,7 +81,7 @@ function generateMarkdown(data) {
    You can find more of my work at [${data.Github}](https://github/${data.Github}/).
 
 
- 
+
 
 
   build out the rest of the markdown

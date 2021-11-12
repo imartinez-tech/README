@@ -1,10 +1,10 @@
 // TODO: Include packages needed for this application
-const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
+const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown')
 //TODO: const questions = [];
-// TODO: Create an array of questions for user input
+//TODO: Create an array of questions for user input
 
 const questions = [
     {
@@ -28,7 +28,7 @@ const questions = [
       message: 'Describe the application',
     },
     {
-      type: 'input',
+      type: 'list',
       name: 'license',
       message: 'choose a license',
       choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None'],
@@ -43,6 +43,7 @@ const questions = [
       type: 'input', 
       name: 'test',
       message: 'What command should be used to run test ?',
+      default: 'npm test',
     },
     {
       type: 'input',
@@ -57,22 +58,18 @@ const questions = [
 
     
   ];
-  inquirer.prompt(questions).then((answers) => {
-    return fs.writeFile("NEWREADME.md", generateMarkdown({ ...answers }), (err) => {
-        if (err) {
-            console.log(err)
-        }
-    })
-    console.log(JSON.stringify(answers, null, '  '));
-    console.log("answers", answers);
-    console.log("Name: ", answers.title)
-    console.log("Location: ", answers.description)
-    //writeToFile("sample.md", answers)
-  });
+  // inquirer.prompt(questions).then((answers) => {
+  //   return fs.writeFile("NEWREADME.md", generateMarkdown({ ...answers }), (err) => {
+  //       if (err) {
+  //           console.log(err)
+  //       }
+  //   })
+    
+  //   //writeToFile("sample.md", answers)
+  // });
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-     console.log(data)
-     fs.writeFileSync(fileName, generateMarkdown({ ...data }))
+     return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
 
 // TODO: Create a function to initialize app
